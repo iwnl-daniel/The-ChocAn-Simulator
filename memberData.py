@@ -1,4 +1,5 @@
 import helperFunctions
+import random
 
 #This file contains the classes Member and MemberData which
 #makes up the part of the data repository concerning member information.
@@ -58,3 +59,39 @@ class Member:
             print("The current member zip code is: " + self.memberZip + ". Do you want to change it?")
             if helperFunctions.yesNoPrompter():
                 self.memberZip = helperFunctions.informationPrompter("member's zip code", 5, 5)
+
+class MemberData:
+    def __init__(self):
+        self.memberTable = dict()
+        #Range of numbers that area a valid member number
+        self.maxNumber = 999999999
+        self.minNumber = 100000000
+    #Randomly generates an unused member number.
+    #Seed parameter only exists for unit tests.
+    def generateMemberNumber(self, seed=None) -> int:
+        random.seed(seed)
+        memberNumber = -1
+        validNumber = False
+        while validNumber == False:
+            memberNumber = random.randint(self.minNumber, self.maxNumber)
+            if memberNumber not in self.memberTable:
+                validNumber = True
+        return memberNumber
+    #Creates Member class with valid number, then lets the user fill in the
+    #member information, and then stores the member in the table.
+    def insertMember(self):
+        member = Member(self.generateMemberNumber)
+        member.fillMember()
+        self.memberTable[member.memberNumber] = member
+    #Takes a member number as an input and checks if it is in the dictionary.
+    #If it is, remove it and remove true.
+    #Otherwise, remove false.
+    def removeMember(self, number : int) -> bool:
+        if number not in self.memberTable:
+            return False
+        del self.memberTable[number]
+        return True
+    def retrieveMember(self, number : int) -> Member:
+        if number not in self.memberTable:
+            return None
+        return self.memberTable[number]
