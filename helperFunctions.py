@@ -65,8 +65,9 @@ def menuManager(menuOptions : list[str]) -> int:
     choice = None
     while validInput == False:
         for i in range(1, optionsCount+1):
-            print(str(i) + ". " + menuOptions[i])
+            print(str(i) + ". " + menuOptions[i-1])
         choice = input("Enter a number corresponding to the menu option you would like to select: ")
+        choice = int(choice)
         validInput = menuErrorCheck(choice, 1, optionsCount)
         if validInput == False:
             print("Not a menu choice.")
