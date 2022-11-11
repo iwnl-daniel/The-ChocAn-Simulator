@@ -34,3 +34,13 @@ class Test_memuErrorCheck:
         assert helperFunctions.menuErrorCheck(3, 1, 5) == True
     def test_invalidChoice(self):
         assert helperFunctions.menuErrorCheck(7, 1, 5) == False
+
+class Test_validNumberCheck:
+    def test_validNumber(self):
+        assert helperFunctions.validNumberCheck("999999999") == True
+    def test_invalidNumber(self):
+        assert helperFunctions.validNumberCheck("333") == False
+        assert helperFunctions.validNumberCheck("101010101010") == False
+    def test_nonNumber(self):
+        assert helperFunctions.validNumberCheck("word") == False
+        assert helperFunctions.validNumberCheck("10word10") == False

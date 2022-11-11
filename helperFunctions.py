@@ -79,3 +79,14 @@ def menuErrorCheck(menuChoice : int, minimumOption : int, maximumOption : int) -
     if menuChoice >= minimumOption and menuChoice <= maximumOption:
         return True
     return False
+
+#Returns true if the string is a nine-digit number.
+def validNumberCheck(number : str) -> bool:
+    length = len(number)
+    if length != 9:
+        return False
+    isANumber = True
+    for i in number:
+        if i > "9" or i < "0":
+            isANumber = False
+    return isANumber
