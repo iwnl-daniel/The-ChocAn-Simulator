@@ -80,9 +80,11 @@ class MemberData:
     #Creates Member class with valid number, then lets the user fill in the
     #member information, and then stores the member in the table.
     def insertMember(self):
-        member = Member(self.generateMemberNumber)
+        number = self.generateMemberNumber()
+        member = Member(number)
         member.fillMember()
         self.memberTable[member.memberNumber] = member
+        print("The member number is: " + str(number))
     #Takes a member number as an input and checks if it is in the dictionary.
     #If it is, remove it and remove true.
     #Otherwise, remove false.
