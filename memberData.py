@@ -1,11 +1,12 @@
 import helperFunctions
 import random
+from providerData import ProviderData
 
 #This file contains the classes Member and MemberData which
 #makes up the part of the data repository concerning member information.
 
 #The Member class contains all personal information of one member.
-class Member:
+class Member(ProviderData):
     #The constructor is the only time the member number is
     #allowed to be set.
     def __init__(self, number : int):
