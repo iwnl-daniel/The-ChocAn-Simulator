@@ -1,6 +1,6 @@
 # The code in this file contains:
-# 
-# 
+# Function for 
+# Function to display service to user
 # 
 
 def displayService(userInput: int):
