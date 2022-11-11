@@ -6,7 +6,7 @@ from providerData import ProviderData
 #makes up the part of the data repository concerning member information.
 
 #The Member class contains all personal information of one member.
-class Member(ProviderData):
+class Member:
     #The constructor is the only time the member number is
     #allowed to be set.
     def __init__(self, number : int):
@@ -61,8 +61,9 @@ class Member(ProviderData):
             if helperFunctions.yesNoPrompter():
                 self.memberZip = helperFunctions.informationPrompter("member's zip code", 5, 5)
 
-class MemberData:
+class MemberData(ProviderData):
     def __init__(self):
+        super().__init__()
         self.memberTable = dict()
         #Range of numbers that area a valid member number
         self.maxNumber = 999999999

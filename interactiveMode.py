@@ -48,9 +48,10 @@ def removeMember(dataRepository : DataRepository):
         print("Member does not exist.")
 
 def modifyMember(dataRepository : DataRepository):
+    number = None
     validNumber = False
     while validNumber == False:
-        number = input("What is the 9-digit number of the member you would like to remove?: ")
+        number = input("What is the 9-digit number of the member you would like to modify?: ")
         validNumber = helperFunctions.validNumberCheck(number)
         if validNumber == False:
             print("Invalid number.")
@@ -62,10 +63,34 @@ def modifyMember(dataRepository : DataRepository):
         member.adjustMember()
 
 def insertProvider(dataRepository : DataRepository):
-    pass
+    dataRepository.insertProvider()
 
 def removeProvider(dataRepository : DataRepository):
-    pass
+    number = None
+    validNumber = False
+    while validNumber == False:
+        number = input("What is the 9-digit number of the provider you would like to remove?: ")
+        validNumber = helperFunctions.validNumberCheck(number)
+        if validNumber == False:
+            print("Invalid number.")
+    number = int(number)
+    providerRemoved = dataRepository.removeProvider(number)
+    if providerRemoved:
+        print("Provider removed.")
+    else:
+        print("Provider does not exist.")
 
 def modifyProvider(dataRepository : DataRepository):
-    pass
+    number = None
+    validNumber = False
+    while validNumber == False:
+        number = input("What is the 9-digit number of the provider you would like to modify?: ")
+        validNumber = helperFunctions.validNumberCheck(number)
+        if validNumber == False:
+            print("Invalid number.")
+    number = int(number)
+    provider = dataRepository.retrieveProvider(number)
+    if provider == None:
+        print("Provider does not exist.")
+    else:
+        provider.adjustProvider()
