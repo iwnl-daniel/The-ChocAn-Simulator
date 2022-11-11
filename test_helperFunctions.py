@@ -15,16 +15,22 @@ class Test_stringLengthCheck:
         assert helperFunctions.stringLengthCheck("string",7,10) == -1
         assert helperFunctions.stringLengthCheck("string",1,3) == 1
 
-class Test_yesNoChecker:
+class Test_yesNoErrorCheck:
     def test_yes(self):
-        assert helperFunctions.yesNoChecker("yes") == 1
-        assert helperFunctions.yesNoChecker("Yes") == 1
-        assert helperFunctions.yesNoChecker("y") == 1
-        assert helperFunctions.yesNoChecker("Y") == 1
+        assert helperFunctions.yesNoErrorCheck("yes") == 1
+        assert helperFunctions.yesNoErrorCheck("Yes") == 1
+        assert helperFunctions.yesNoErrorCheck("y") == 1
+        assert helperFunctions.yesNoErrorCheck("Y") == 1
     def test_no(self):
-        assert helperFunctions.yesNoChecker("no") == -1
-        assert helperFunctions.yesNoChecker("n") == -1
-        assert helperFunctions.yesNoChecker("No") == -1
-        assert helperFunctions.yesNoChecker("N") == -1
+        assert helperFunctions.yesNoErrorCheck("no") == -1
+        assert helperFunctions.yesNoErrorCheck("n") == -1
+        assert helperFunctions.yesNoErrorCheck("No") == -1
+        assert helperFunctions.yesNoErrorCheck("N") == -1
     def test_invalidInput(self):
-        assert helperFunctions.yesNoChecker("word") == 0
+        assert helperFunctions.yesNoErrorCheck("word") == 0
+
+class Test_memuErrorCheck:
+    def test_validChoice(self):
+        assert helperFunctions.menuErrorCheck(3, 1, 5) == True
+    def test_invalidChoice(self):
+        assert helperFunctions.menuErrorCheck(7, 1, 5) == False

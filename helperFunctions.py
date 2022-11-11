@@ -38,7 +38,7 @@ def yesNoPrompter() -> bool:
     response = None
     while validInput == False:
         yesNo = input("Enter Y/N: ")
-        yesNoValue = yesNoChecker(yesNo)
+        yesNoValue = yesNoErrorCheck(yesNo)
         if yesNoValue == 1:
             response = True
             validInput = True
@@ -50,9 +50,31 @@ def yesNoPrompter() -> bool:
     return response
 
 #turns yes/no statements into other values. 1 == yes, -1 == no, 0 == invalid input.
-def yesNoChecker(yesNo : str) -> int:
+def yesNoErrorCheck(yesNo : str) -> int:
     if yesNo == "Y" or yesNo == "y" or yesNo == "Yes" or yesNo == "yes":
         return 1
     if yesNo == "N" or yesNo == "n" or yesNo == "No" or yesNo == "no":
         return -1
     return 0
+
+#Takes a string of menu options, displays them as a list, and
+#returns the menu choice inputted by the user.
+def menuManager(menuOptions : list[str]) -> int:
+    optionsCount = len(menuOptions)
+    validInput = False
+    choice = None
+    while validInput == False:
+        for i in range(1, optionsCount+1):
+            print(str(i) + ". " + menuOptions[i])
+        choice = input("Enter a number corresponding to the menu option you would like to select: ")
+        validInput = menuErrorCheck(choice, 1, optionsCount)
+        if validInput == False:
+            print("Not a menu choice.")
+    return choice
+
+#Returns true if the user input is within the allowed menu options.
+#Otherwise, returns false.
+def menuErrorCheck(menuChoice : int, minimumOption : int, maximumOption : int) -> bool:
+    if menuChoice >= minimumOption and menuChoice <= maximumOption:
+        return True
+    return False
