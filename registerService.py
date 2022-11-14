@@ -24,7 +24,7 @@ def displayService(userInput: int):
     # check to see if userInput is in the dictionary 
     if service == 0:
         # Error message and return false
-        print("\033[31m" + "ERROR: " + "\x1b[0m" +  "No servivce corresponds to service number entered")
+        print("\033[31mERROR:\x1b[0m No servivce corresponds to service number entered")
         return False
     # display service and ask user if it is correct
     print (service)
