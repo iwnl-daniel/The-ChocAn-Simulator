@@ -1,9 +1,17 @@
 # The code in this file contains:
-# Function for 
+# Function for the register service
 # Function to display service to user
 # 
 
 #import service dictionary
+
+def registerService():
+    while True:
+        serviceNumber = input("Please enter the service number: ")
+        if displayService(serviceNumber) == True:
+            break
+    # addRecord() when available
+    return True
 
 # code to check service code is correct
     # return true if service matches what the user wants 
