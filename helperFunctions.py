@@ -90,3 +90,13 @@ def validNumberCheck(number : str) -> bool:
         if i > "9" or i < "0":
             isANumber = False
     return isANumber
+
+
+# Validates Member ID for login access to ChocAn
+def validateMember(number) -> bool:
+    if validNumberCheck(number):
+
+
+    else:
+        print("Error: Not a valid 9 digit ID")
+        return False
