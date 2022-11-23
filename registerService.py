@@ -4,13 +4,22 @@
 # 
 
 #import service dictionary
+import records,record
+import helperFunctions
+from datetime import datetime
 
-def registerService():
+def registerService(records): #register data and time of service and store into records
+    serviceNumber
     while True:
-        serviceNumber = input("Please enter the service number: ")
+        serviceNumber = helperFunctions.informationPrompter("Enter service code", 1, 9)
         if displayService(serviceNumber) == True:
             break
-    # addRecord() when available
+    memberNumber = helperFunctions.informationPrompter("Enter member number", 1, 9)
+    providerNumber = helperFunctions.informationPrompter("Enter Provider number", 1, 9)
+    currentTime = datetime.now()
+    serviceDate = currentTime.strftime("%m/%d/%Y %H:%M:%S") #UTC time
+    comments = helperFunctions.informationPrompter("Enter a comment", 0, 100)
+    records.addRecord(serviceDate, providerNumber, memberNumber, serviceNumber, comments)
     return True
 
 # code to check service code is correct
