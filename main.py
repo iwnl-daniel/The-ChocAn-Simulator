@@ -26,7 +26,24 @@ def main():
     return
 
 def memberMenu(dataRepository : DataRepository):
-    pass
+    choice = -1
+    menuOptions = \
+        ["Member Login", \
+         "Return to user mode selection."]
+    endOption = len(menuOptions)
+    while choice != endOption:
+        print("Please select an option.")
+        choice = helperFunctions.menuManager(menuOptions)
+        if choice == 1:
+            print("Please enter your Member ID:")
+            number = input()
+            member = dataRepository.validateMember(number)
+            if member is not None:
+                print("\nWelcome,", member.memberName)
+                terminal = input()  # used to pause program at this point
+        elif choice == 2:
+            pass
+    return
 
 def providerMenu(dataRepository : DataRepository):
     pass

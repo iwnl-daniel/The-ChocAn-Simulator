@@ -99,3 +99,20 @@ class MemberData(ProviderData):
         if number not in self.memberTable:
             return None
         return self.memberTable[number]
+
+
+    # Validates Member ID for login access to ChocAn
+    def validateMember(self, number) -> Member:
+        if helperFunctions.validNumberCheck(number):  # checks if number is a 9 digit numerical value
+            member = self.retrieveMember(int(number))  # searches data repository for existing member id
+            if member is not None:
+                print("Login Successful")
+                return member
+
+            else:
+                print("Error: Invalid Member ID")
+                return None
+
+        else:
+            print("Error: Not a valid 9 digit ID")
+            return None
