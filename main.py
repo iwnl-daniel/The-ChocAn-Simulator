@@ -1,6 +1,7 @@
 import helperFunctions
 from dataRepository import DataRepository
 import interactiveMode
+import generateReports
 
 #This file will be where the program is run from, and it
 #will be in charge of controlling the flow of the program.
@@ -61,7 +62,7 @@ def chocAnMenu(dataRepository : DataRepository):
         if choice == 1:
             interactiveMode.interactiveMode(dataRepository)
         elif choice == 2:
-            pass
+            generateReports.generateReports(dataRepository)
     return
 
 if __name__ == "__main__":
