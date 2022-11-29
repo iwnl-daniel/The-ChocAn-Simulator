@@ -38,3 +38,12 @@ class Records(MemberData):
                 recordList.append(self.database[i])
 
             return recordList
+    
+
+    #return all providers numbers for use in reports
+    def returnProviderRecords(self):
+        recordNumber = []
+        for i in range(len(self.database)):
+            recordNumber.append(self.database[i].providerNumber)
+
+        return recordNumber
