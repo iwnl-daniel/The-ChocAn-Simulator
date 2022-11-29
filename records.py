@@ -28,7 +28,13 @@ class Records(MemberData):
 
             return recordList
 
+    # retrieves ALL member records, will implement ability to only retrieve records added in the past week
+    def retrieveAllMemberRecords(self):
+        recordList = self.database
 
+        return recordList
+
+        
     # searches and retrieves all records pertaining to provider ID (number); returns a list
     def retrieveProviderRecords(self, number: int):
         recordList = []
