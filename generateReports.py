@@ -52,6 +52,9 @@ def providerReport(dataRepository : DataRepository, providerNumber):
             print("Provider Report Generated for Provider", providerNumber)
             return
 
-
+# manager report is a collection of provider reports for all providers to be used by a manager
 def managerReport(dataRepository : DataRepository):
+    recordNumbers = dataRepository.returnProviderRecords()
+    for i in range(len(recordNumbers)):
+        providerReport(recordNumbers[i])
     return
