@@ -4,7 +4,7 @@
 # 
 
 #import service dictionary
-import records,record
+import records
 import helperFunctions
 from datetime import datetime
 

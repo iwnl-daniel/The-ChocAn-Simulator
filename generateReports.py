@@ -14,7 +14,7 @@ def generateReports(dataRepository : DataRepository):
         print("What would you like to do?")
         choice = helperFunctions.menuManager(menuOptions)
         if choice == 1:
-            pass
+            memberReport(dataRepository)
         elif choice == 2:
             print("Please enter a Provider Number:")
             number = input()
@@ -24,7 +24,16 @@ def generateReports(dataRepository : DataRepository):
     return
 
 
-def memberReport(dataRepository : DataRepository, memberNumber):
+def memberReport(dataRepository : DataRepository):
+    memberReport = dataRepository.retrieveAllMemberRecords()
+    if not memberReport:
+        print("No records found in database")
+        return
+    else:
+        print("Members found:") #partially implemented, need ability to create records for further development
+        for i in range(len(memberReport)):
+            print("Member number:", memberReport[i].memberNumber)
+        return
     return
 
 
@@ -43,6 +52,9 @@ def providerReport(dataRepository : DataRepository, providerNumber):
             print("Provider Report Generated for Provider", providerNumber)
             return
 
-
+# manager report is a collection of provider reports for all providers to be used by a manager
 def managerReport(dataRepository : DataRepository):
+    recordNumbers = dataRepository.returnProviderRecords()
+    for i in range(len(recordNumbers)):
+        providerReport(recordNumbers[i])
     return
