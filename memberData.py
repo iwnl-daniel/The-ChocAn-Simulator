@@ -68,6 +68,7 @@ class MemberData(ProviderData):
         #Range of numbers that area a valid member number
         self.maxNumber = 999999999
         self.minNumber = 100000000
+
     #Randomly generates an unused member number.
     #Seed parameter only exists for unit tests.
     def generateMemberNumber(self, seed=None) -> int:
@@ -79,6 +80,7 @@ class MemberData(ProviderData):
             if memberNumber not in self.memberTable:
                 validNumber = True
         return memberNumber
+
     #Creates Member class with valid number, then lets the user fill in the
     #member information, and then stores the member in the table.
     def insertMember(self):
@@ -87,6 +89,7 @@ class MemberData(ProviderData):
         member.fillMember()
         self.memberTable[member.memberNumber] = member
         print("The member number is: " + str(number))
+
     #Takes a member number as an input and checks if it is in the dictionary.
     #If it is, remove it and remove true.
     #Otherwise, remove false.
@@ -95,11 +98,11 @@ class MemberData(ProviderData):
             return False
         del self.memberTable[number]
         return True
+
     def retrieveMember(self, number : int) -> Member:
         if number not in self.memberTable:
             return None
         return self.memberTable[number]
-
 
     # Validates Member ID for login access to ChocAn
     def validateMember(self, number) -> Member:

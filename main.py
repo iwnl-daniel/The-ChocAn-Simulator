@@ -2,6 +2,7 @@ import helperFunctions
 from dataRepository import DataRepository
 import interactiveMode
 import generateReports
+import providerDirectory
 
 #This file will be where the program is run from, and it
 #will be in charge of controlling the flow of the program.
@@ -47,7 +48,23 @@ def memberMenu(dataRepository : DataRepository):
     return
 
 def providerMenu(dataRepository : DataRepository):
-    pass
+    choice = -1
+    menuOptions = \
+        ["Provider Login", \
+         "Return to user mode selection."]
+    endOption = len(menuOptions)
+    while choice != endOption:
+        print("Please select an option.")
+        choice = helperFunctions.menuManager(menuOptions)
+        if choice == 1:
+            print("Please enter your Provider ID:")
+            number = input()
+            provider = dataRepository.validateProvider(number)
+            if provider is not None:
+                providerDirectory.directoryInterface(dataRepository)
+        elif choice == 2:
+            pass
+    return
 
 def chocAnMenu(dataRepository : DataRepository):
     choice = -1

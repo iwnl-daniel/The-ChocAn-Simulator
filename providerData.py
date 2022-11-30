@@ -66,6 +66,7 @@ class ProviderData:
         #Range of numbers that area a valid provider number
         self.maxNumber = 999999999
         self.minNumber = 100000000
+
     #Randomly generates an unused provider number.
     #Seed parameter only exists for unit tests.
     def generateProviderNumber(self, seed=None) -> int:
@@ -77,6 +78,7 @@ class ProviderData:
             if providerNumber not in self.providerTable:
                 validNumber = True
         return providerNumber
+
     #Creates Provider class with valid number, then lets the user fill in the
     #provider information, and then stores the provider in the table.
     def insertProvider(self):
@@ -85,6 +87,7 @@ class ProviderData:
         provider.fillProvider()
         self.providerTable[provider.providerNumber] = provider
         print("The provider number is: " + str(number))
+
     #Takes a provider number as an input and checks if it is in the dictionary.
     #If it is, remove it and remove true.
     #Otherwise, remove false.
@@ -93,7 +96,24 @@ class ProviderData:
             return False
         del self.providerTable[number]
         return True
+
     def retrieveProvider(self, number : int) -> Provider:
         if number not in self.providerTable:
             return None
         return self.providerTable[number]
+
+    #Validates Provier ID for login access to ChocAn
+    def validateProvider(self, number) -> Provider:
+        if helperFunctions.validNumberCheck(number):  # checks if number is a 9 digit numerical value
+            provider = self.retrieveProvider(int(number))  # searches data repository for existing provider id
+            if provider is not None:
+                print("Login Successful")
+                return provider
+    
+            else:
+                print("Error: Invalid Provider ID")
+                return None
+    
+        else:
+            print("Error: Not a valid 9 digit ID")
+            return None

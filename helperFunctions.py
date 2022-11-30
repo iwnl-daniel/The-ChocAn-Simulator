@@ -90,3 +90,14 @@ def validNumberCheck(number : str) -> bool:
         if i > "9" or i < "0":
             isANumber = False
     return isANumber
+
+#Returns true if the string is a six-digit number.
+#def providerValidNumberCheck(number : str) -> bool:
+#    length = len(number)
+#    if length != 6:
+#        return False
+#    isANumber = True
+#    for i in number:
+#        if i > "9" or i < "0":
+#            isANumber = False
+#    return isANumber
