@@ -6,6 +6,7 @@
 #import service dictionary
 import records
 import helperFunctions
+import providerDirectory
 from datetime import datetime
 
 def registerService(records): #register data and time of service and store into records
@@ -27,16 +28,19 @@ def registerService(records): #register data and time of service and store into 
     # return false WITH error code if input doesnt match a service 
     # return false if input doesnt match a service
 def displayService(userInput: int):
+    # Initialize provider directory data
+    providerDir = providerDirectory.Directory()
+    providerDir.read()
     # get userInput from service dictionary
     # The dictionary consists of [service # : service information]
-    service = NAME_OF_SERVICE_DIRECTORY.get(userInput,0)
+    service = providerDir.dictionary.get(userInput,0)
     # check to see if userInput is in the dictionary 
     if service == 0:
         # Error message and return false
         print("\033[31mERROR:\x1b[0m No servivce corresponds to service number entered")
         return False
     # display service and ask user if it is correct
-    print (service)
+    print (service[0])
     user = input("Is this the correct service (y/n): ")
     # make sure user inputs y/Y or n/N
     while user not in ['y', 'Y', 'n', 'N']:
@@ -46,8 +50,6 @@ def displayService(userInput: int):
         return False
     # service number is correct and it returns True
     return True
-
-
 
 
     
