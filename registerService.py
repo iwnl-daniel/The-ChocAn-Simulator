@@ -7,9 +7,10 @@
 import records
 import helperFunctions
 import providerDirectory
+from dataRepository import DataRepository
 from datetime import datetime
 
-def registerService(records): #register data and time of service and store into records
+def registerService(dataRepository : DataRepository): #register data and time of service and store into records
     serviceNumber
     while True:
         serviceNumber = helperFunctions.informationPrompter("Enter service code", 1, 9)
