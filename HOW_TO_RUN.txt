@@ -1,8 +1,15 @@
-Instructions on how to run the application
+# Instructions on how to run the application
+# Enter code into terminal line by line:
 
-Enter code into terminal line by line:
-
+# Unix/ macOS:
 python3 -m venv env
 source env/bin/activate
+pip install -r requirements.txt
+python3 main.py
+
+
+# Windows:
+py -m venv env
+.\env\Scripts\activate
 pip install -r requirements.txt
 python3 main.py
