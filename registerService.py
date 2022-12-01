@@ -44,13 +44,12 @@ def displayService(userInput: str):
         return False
     # display service and ask user if it is correct
     print (service[0])
-    user = input("Is this the correct service (y/n): ")
+    user = input(f'Is this the {Fore.GREEN}correct{Style.RESET_ALL} service (y/n)?: ').upper()
     # make sure user inputs y/Y or n/N
-    while user not in ['y', 'Y', 'n', 'N']:
-        user = input("Is this the correct service (y/n): ")
-    if user in ['n', 'N']:
+    while user not in ['Y', 'YES', 'N', 'NO']:
+        user = input(f'Is this the {Fore.GREEN}correct{Style.RESET_ALL} service (y/n)?: ').upper()
+    if user in ['NO', 'N']:
         # service number is wrong and it returns False
         return False
     # service number is correct and it returns True
     return True
-
