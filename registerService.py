@@ -27,7 +27,7 @@ def registerService(records): #register data and time of service and store into 
     # return true if service matches what the user wants 
     # return false WITH error code if input doesnt match a service 
     # return false if input doesnt match a service
-def displayService(userInput: int):
+def displayService(userInput: str):
     # Initialize provider directory data
     providerDir = providerDirectory.Directory()
     providerDir.read()
@@ -51,5 +51,3 @@ def displayService(userInput: int):
     # service number is correct and it returns True
     return True
 
-
-    
