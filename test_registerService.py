@@ -27,8 +27,10 @@ def test_displayService_valid_userInput(monkeypatch):
     assert value == True
     value = registerService.displayService('583667')
     assert value == True
-# Test: user can enter either y, Y, n, or N as inputs when 
-# asked if service number matches 
+# Test: user can enter either all of the following:
+# y, Y, yes (in any form of capitalization),
+# n, N, no (in any form of capitalization)
+# when asked if service number matches what they entered 
 def test_userInput_correct_service_question(monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: "y")
     value = registerService.displayService('175932')
@@ -36,10 +38,28 @@ def test_userInput_correct_service_question(monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: "Y")
     value = registerService.displayService('175932')
     assert value == True
+    monkeypatch.setattr('builtins.input', lambda _: "YES")
+    value = registerService.displayService('175932')
+    assert value == True
+    monkeypatch.setattr('builtins.input', lambda _: "yes")
+    value = registerService.displayService('175932')
+    assert value == True
+    monkeypatch.setattr('builtins.input', lambda _: "yEs")
+    value = registerService.displayService('175932')
+    assert value == True
     monkeypatch.setattr('builtins.input', lambda _: "n")
     value = registerService.displayService('175932')
     assert value == False
     monkeypatch.setattr('builtins.input', lambda _: "N")
+    value = registerService.displayService('175932')
+    assert value == False
+    monkeypatch.setattr('builtins.input', lambda _: "no")
+    value = registerService.displayService('175932')
+    assert value == False
+    monkeypatch.setattr('builtins.input', lambda _: "NO")
+    value = registerService.displayService('175932')
+    assert value == False
+    monkeypatch.setattr('builtins.input', lambda _: "nO")
     value = registerService.displayService('175932')
     assert value == False
 
