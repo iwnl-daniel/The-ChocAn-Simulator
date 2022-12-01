@@ -9,6 +9,8 @@ import helperFunctions
 import providerDirectory
 from dataRepository import DataRepository
 from datetime import datetime
+from colorama import Fore
+from colorama import Style
 
 def registerService(dataRepository : DataRepository): #register data and time of service and store into records
     serviceNumber
@@ -38,7 +40,7 @@ def displayService(userInput: str):
     # check to see if userInput is in the dictionary 
     if service == 0:
         # Error message and return false
-        print("\033[31mERROR:\x1b[0m No servivce corresponds to service number entered")
+        print(f'{Fore.RED}ERROR:{Style.RESET_ALL} No servivce corresponds to service number entered')
         return False
     # display service and ask user if it is correct
     print (service[0])
