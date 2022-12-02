@@ -20,7 +20,7 @@ def generateReports(dataRepository : DataRepository):
             number = input()
             providerReport(dataRepository, number)
         elif choice == 3:
-            pass
+            managerReport(dataRepository)
     return
 
 

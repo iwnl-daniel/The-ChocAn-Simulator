@@ -8,4 +8,8 @@ def filledRecord():
     return record1
 
 def test_display_record(filledRecord):
-    assert filledRecord.displayRecord() == True
+    if filledRecord.displayRecord() == True:
+        assert True
+
+    else:
+        assert False

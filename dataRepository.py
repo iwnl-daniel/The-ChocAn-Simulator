@@ -1,5 +1,4 @@
-# import memberData
-import records
+import providerDirectory
 
 #This file holds the class DataRepository, which inherits from
 #the data structures.
@@ -9,5 +8,5 @@ import records
 # class DataRepository(memberData.MemberData):
 #    pass
 
-class DataRepository(records.Records):
+class DataRepository(providerDirectory.Directory):
     pass
