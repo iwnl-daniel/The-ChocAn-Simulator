@@ -82,5 +82,19 @@ def chocAnMenu(dataRepository : DataRepository):
             generateReports.generateReports(dataRepository)
     return
 
+def directoryInterface(dataRepository : DataRepository):
+    choice = -1
+    menuOptions = \
+        ["View Provider Directory.",\
+        "Return to previous menu."]
+    endOption = len(menuOptions)
+    while choice != endOption:
+        print("What would you like to do?")
+        choice = helperFunctions.menuManager(menuOptions)
+        if choice == 1:
+            directory = dataRepository.Directory()
+            directory.viewDirectory()
+    return
+
 if __name__ == "__main__":
     main()

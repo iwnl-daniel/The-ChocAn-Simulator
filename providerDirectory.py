@@ -1,5 +1,5 @@
 from records import Records
-from dataRepository import DataRepository
+#from dataRepository import DataRepository
 import helperFunctions
 import csv
 
@@ -35,17 +35,3 @@ class Directory(Records):
     def viewDirectory(self):
         print("Directory here\n")
         pass
-
-def directoryInterface(dataRepository : DataRepository):
-    choice = -1
-    menuOptions = \
-        ["View Provider Directory.",\
-        "Return to previous menu."]
-    endOption = len(menuOptions)
-    while choice != endOption:
-        print("What would you like to do?")
-        choice = helperFunctions.menuManager(menuOptions)
-        if choice == 1:
-            directory = Directory()
-            directory.viewDirectory()
-    return
