@@ -33,7 +33,9 @@ class Directory(Records):
         # self.dictionary should have all the info from the .csv file now
 
     def viewDirectory(self):
-        print("Directory here\n")
+        print(self.dictionary)
+        print("\n")
+        terminal = input()  # used to pause program at this point
         pass
 
 def directoryInterface(dataRepository : DataRepository):
