@@ -14,12 +14,8 @@ class Records(MemberData):
 
     # add a record into the system's database by invoking the Record constructor
     def addRecord(self, serviceDate, providerNumber : int, memberNumber : int, serviceCode : int, comments):
-        if helperFunctions.validNumberCheck(providerNumber) and helperFunctions.validNumberCheck(memberNumber):
-            self.database.append(Record(serviceDate, providerNumber, memberNumber, serviceCode, comments))
-            return True
-
-        else:
-            return False
+        self.database.append(Record(serviceDate, providerNumber, memberNumber, serviceCode, comments))
+        return True
 
 
 
