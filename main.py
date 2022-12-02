@@ -61,7 +61,7 @@ def providerMenu(dataRepository : DataRepository):
             number = input()
             provider = dataRepository.validateProvider(number)
             if provider is not None:
-                providerDirectory.directoryInterface(dataRepository)
+                directoryInterface(dataRepository)
         elif choice == 2:
             pass
     return
