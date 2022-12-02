@@ -22,6 +22,7 @@ class Directory(Records):
     def __init__(self):
         super().__init__()
         self.dictionary = dict()
+        self.read()
 
     def read(self) -> bool:
         with open('providerDirectory.csv', 'r') as external_file:
@@ -35,5 +36,4 @@ class Directory(Records):
     def viewDirectory(self):
         print(self.dictionary)
         print("\n")
-        terminal = input()  # used to pause program at this point
         pass

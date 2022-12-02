@@ -92,7 +92,7 @@ def directoryInterface(dataRepository : DataRepository):
         print("What would you like to do?")
         choice = helperFunctions.menuManager(menuOptions)
         if choice == 1:
-            directory = dataRepository.Directory()
+            directory = providerDirectory.Directory()
             directory.viewDirectory()
     return
 
