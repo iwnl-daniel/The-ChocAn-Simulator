@@ -44,7 +44,7 @@ class Records(MemberData):
             if self.database[i].providerNumber == number:
                 recordList.append(self.database[i])
 
-            return recordList
+        return recordList
     
 
     #return all providers numbers for use in reports

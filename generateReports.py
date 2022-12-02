@@ -1,5 +1,6 @@
 from dataRepository import DataRepository
 import helperFunctions
+from datetime import datetime
 
 
 def generateReports(dataRepository : DataRepository):
@@ -37,19 +38,27 @@ def memberReport(dataRepository : DataRepository):
 
 
 def providerReport(dataRepository : DataRepository, providerNumber):
-    summaryReport = dataRepository.retrieveProviderRecords(int(providerNumber))
+    summaryReport = dataRepository.retrieveProviderRecords(providerNumber)
     if not summaryReport:
         print("No records found for specified provider number")
         return
 
     else:
-        with open(f'providerReport_{providerNumber}.txt', 'w') as f:
-            for i in range(len(summaryReport)):
-                f.write(summaryReport[i].displayProviderRecord())  # reimplementation/testing required?
-                f.write("\n\n")
+        with open(f'providerReport_{providerNumber}.txt', 'a') as f:  # Writes to a txt file with name 'providerReport_<providerNumber>.txt'
+            currentTime = datetime.now()
+            currentTimeString = currentTime.strftime("%m/%d/%Y %H:%M:%S")
+            f.write('Current Date: ')
+            f.write(currentTimeString)
+            f.write('\n\n')
 
-            print("Provider Report Generated for Provider", providerNumber)
-            return
+            for i in range(len(summaryReport)):
+                print("Date of Service:", summaryReport[i].serviceDate, file=f)
+                print("Member Number:", summaryReport[i].memberNumber, file=f)
+                print("Service Code:", summaryReport[i].serviceCode, file=f)
+                print("\n", file=f)
+
+        print("Provider Report Generated for Provider", providerNumber)
+        return
 
 # manager report is a collection of provider reports for all providers to be used by a manager
 def managerReport(dataRepository : DataRepository):

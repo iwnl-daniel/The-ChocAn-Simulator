@@ -98,9 +98,8 @@ def directoryInterface(dataRepository : DataRepository):
             directory.viewDirectory()
         if choice == 2:
             registerService(dataRepository)
-            test = dataRepository.retrieveAllMemberRecords() # TESTING PURPOSES
-            for i in range(len(test)): # TESTING PURPOSES
-                test[i].displayRecord() # TESTING PURPOSES
+            print("Service Registered")
+
     return
 
 if __name__ == "__main__":
