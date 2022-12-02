@@ -34,6 +34,6 @@ class Directory(Records):
         # self.dictionary should have all the info from the .csv file now
 
     def viewDirectory(self):
-        print(self.dictionary)
+        for i, j in self.dictionary.items():
+            print(i, ":", j)
         print("\n")
-        pass
