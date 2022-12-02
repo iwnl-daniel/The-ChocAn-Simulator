@@ -35,5 +35,5 @@ class Directory(Records):
 
     def viewDirectory(self):
         for i, j in self.dictionary.items():
-            print(i, ":", j)
+            print(f'Service Code: {i} Service: {j[0]} Fee: {j[1]}')
         print("\n")
