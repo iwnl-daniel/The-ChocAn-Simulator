@@ -34,7 +34,6 @@ def memberReport(dataRepository : DataRepository):
         for i in range(len(memberReport)):
             print("Member number:", memberReport[i].memberNumber)
         return
-    return
 
 
 def providerReport(dataRepository : DataRepository, providerNumber):
