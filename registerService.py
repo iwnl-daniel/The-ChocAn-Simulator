@@ -23,8 +23,9 @@ def registerService(dataRepository : DataRepository): #register data and time of
     currentTime = datetime.now()
     serviceDate = currentTime.strftime("%m/%d/%Y %H:%M:%S") #UTC time
     comments = helperFunctions.informationPrompter("Enter a comment", 0, 100)
-    records.addRecord(serviceDate, providerNumber, memberNumber, serviceNumber, comments)
-    return True
+    if dataRepository.addRecord(serviceDate, providerNumber, memberNumber, serviceNumber, comments) == True:
+        return True
+    return False
 
 # code to check service code is correct
     # return true if service matches what the user wants 
