@@ -3,6 +3,7 @@ from dataRepository import DataRepository
 import interactiveMode
 import generateReports
 import providerDirectory
+from registerService import registerService
 
 #This file will be where the program is run from, and it
 #will be in charge of controlling the flow of the program.
@@ -86,6 +87,7 @@ def directoryInterface(dataRepository : DataRepository):
     choice = -1
     menuOptions = \
         ["View Provider Directory.",\
+         "Register Service",\
         "Return to previous menu."]
     endOption = len(menuOptions)
     while choice != endOption:
@@ -94,6 +96,11 @@ def directoryInterface(dataRepository : DataRepository):
         if choice == 1:
             directory = providerDirectory.Directory()
             directory.viewDirectory()
+        if choice == 2:
+            registerService(dataRepository)
+            test = dataRepository.retrieveAllMemberRecords() # TESTING PURPOSES
+            for i in range(len(test)): # TESTING PURPOSES
+                test[i].displayRecord() # TESTING PURPOSES
     return
 
 if __name__ == "__main__":
