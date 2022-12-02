@@ -1,5 +1,5 @@
 from records import Records
-from dataRepository import DataRepository
+#from dataRepository import DataRepository
 import helperFunctions
 import csv
 
@@ -37,17 +37,3 @@ class Directory(Records):
         print("\n")
         terminal = input()  # used to pause program at this point
         pass
-
-def directoryInterface(dataRepository : DataRepository):
-    choice = -1
-    menuOptions = \
-        ["View Provider Directory.",\
-        "Return to previous menu."]
-    endOption = len(menuOptions)
-    while choice != endOption:
-        print("What would you like to do?")
-        choice = helperFunctions.menuManager(menuOptions)
-        if choice == 1:
-            directory = Directory()
-            directory.viewDirectory()
-    return

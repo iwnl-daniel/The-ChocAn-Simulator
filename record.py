@@ -24,6 +24,7 @@ class Record:
         print("Member Number:", self.memberNumber)
         print("Service Code:", self.serviceCode)
         print("Comments:", self.comments)
+        return True
 
 
     def displayMemberRecord(self):  # prints out required information for a member record
