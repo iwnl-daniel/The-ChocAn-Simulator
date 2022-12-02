@@ -1,4 +1,4 @@
-import providerDirectory
+from providerDirectory import Directory
 
 #This file holds the class DataRepository, which inherits from
 #the data structures.
@@ -8,5 +8,5 @@ import providerDirectory
 # class DataRepository(memberData.MemberData):
 #    pass
 
-class DataRepository(providerDirectory.Directory):
+class DataRepository(Directory):
     pass
