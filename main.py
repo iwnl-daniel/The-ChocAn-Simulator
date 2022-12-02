@@ -61,7 +61,7 @@ def providerMenu(dataRepository : DataRepository):
             number = input()
             provider = dataRepository.validateProvider(number)
             if provider is not None:
-                providerDirectory.directoryInterface(dataRepository)
+                directoryInterface(dataRepository)
         elif choice == 2:
             pass
     return
@@ -92,7 +92,7 @@ def directoryInterface(dataRepository : DataRepository):
         print("What would you like to do?")
         choice = helperFunctions.menuManager(menuOptions)
         if choice == 1:
-            directory = dataRepository.Directory()
+            directory = providerDirectory.Directory()
             directory.viewDirectory()
     return
 
