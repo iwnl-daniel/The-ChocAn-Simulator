@@ -42,7 +42,7 @@ def memberReport(dataRepository : DataRepository):
                 print("Member state:", member.memberState, file=f)
                 print("Member zip code:", member.memberZip, file=f)
                 print("\n", file=f)
-                memberRecords = dataRepository.retrieveMemberRecords(member.memberNumber)
+                memberRecords = dataRepository.retrieveMemberRecords(str(member.memberNumber))
                 for i in range(len(memberRecords)):
                     print("Date of Service:", memberRecords[i].serviceDate, file=f)
                     print("Provider Number:", memberRecords[i].providerNumber, file=f)

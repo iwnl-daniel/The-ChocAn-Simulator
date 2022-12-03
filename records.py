@@ -21,7 +21,7 @@ class Records(MemberData):
 
 
     # searches and retrieves all records pertaining to member ID (number); returns a list
-    def retrieveMemberRecords(self, number : int):
+    def retrieveMemberRecords(self, number):
         recordList = []
 
         for i in range(len(self.database)):
