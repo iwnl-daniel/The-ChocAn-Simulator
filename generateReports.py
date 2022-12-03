@@ -26,8 +26,9 @@ def generateReports(dataRepository : DataRepository):
 
 
 def memberReport(dataRepository : DataRepository):
+    done = []
     for i in range(len(dataRepository.database)):
-        if(dataRepository.checkIfMemberHasRecord(dataRepository.database[i].memberNumber)):
+        if(dataRepository.checkIfMemberHasRecord(dataRepository.database[i].memberNumber) and dataRepository.database[i].memberNumber not in done):
             member = dataRepository.retrieveMember(int(dataRepository.database[i].memberNumber))
             with open(f'memberReport_{member.memberNumber}.txt', 'a') as f:  # Writes to a txt file with name 'memberReport_<memberNumber>.txt'
                 currentTime = datetime.now()
@@ -47,6 +48,7 @@ def memberReport(dataRepository : DataRepository):
                     print("Date of Service:", memberRecords[i].serviceDate, file=f)
                     print("Provider Number:", memberRecords[i].providerNumber, file=f)
                     print("Service Code:", memberRecords[i].serviceCode, file=f)
+            done.append(dataRepository.database[i].memberNumber)
         else:
             print(dataRepository.database[i].memberNumber, "has no records")
     return
