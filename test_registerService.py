@@ -9,9 +9,7 @@ def test_registerService_valid_userInput(monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: "y")
     value = registerService.displayService('175932')
     assert value == True
-def test_registerService_input_record(monkeypatch):
-    monkeypatch.setattr('builtins.input', lambda _: "y")
-    
+
 
 # === displayService function tests ===
 
