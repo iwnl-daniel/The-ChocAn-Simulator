@@ -26,15 +26,30 @@ def generateReports(dataRepository : DataRepository):
 
 
 def memberReport(dataRepository : DataRepository):
-    memberReport = dataRepository.retrieveAllMemberRecords()
-    if not memberReport:
-        print("No records found in database")
-        return
-    else:
-        print("Members found:") #partially implemented, need ability to create records for further development
-        for i in range(len(memberReport)):
-            print("Member number:", memberReport[i].memberNumber)
-        return
+    for i in range(len(dataRepository.database)):
+        if(dataRepository.checkIfMemberHasRecord(dataRepository.database[i].memberNumber)):
+            member = dataRepository.retrieveMember(int(dataRepository.database[i].memberNumber))
+            with open(f'memberReport_{member.memberNumber}.txt', 'a') as f:  # Writes to a txt file with name 'memberReport_<memberNumber>.txt'
+                currentTime = datetime.now()
+                currentTimeString = currentTime.strftime("%m/%d/%Y %H:%M:%S")
+                f.write('Current Date: ')
+                f.write(currentTimeString)
+                f.write('\n\n')
+                print("Member name:", member.memberName, file=f)
+                print("Member number:", member.memberNumber, file=f)
+                print("Member address:", member.memberAddress, file=f)
+                print("Member city:", member.memberCity, file=f)
+                print("Member state:", member.memberState, file=f)
+                print("Member zip code:", member.memberZip, file=f)
+                print("\n", file=f)
+                memberRecords = dataRepository.retrieveMemberRecords(member.memberNumber)
+                for i in range(len(memberRecords)):
+                    print("Date of Service:", memberRecords[i].serviceDate, file=f)
+                    print("Provider Number:", memberRecords[i].providerNumber, file=f)
+                    print("Service Code:", memberRecords[i].serviceCode, file=f)
+        else:
+            print(dataRepository.database[i].memberNumber, "has no records")
+    return
 
 
 def providerReport(dataRepository : DataRepository, providerNumber):
