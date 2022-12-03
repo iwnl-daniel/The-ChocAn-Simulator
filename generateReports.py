@@ -64,5 +64,5 @@ def providerReport(dataRepository : DataRepository, providerNumber):
 def managerReport(dataRepository : DataRepository):
     recordNumbers = dataRepository.returnProviderRecords()
     for i in range(len(recordNumbers)):
-        providerReport(recordNumbers[i])
+        providerReport(dataRepository, recordNumbers[i])
     return
