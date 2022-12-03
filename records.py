@@ -1,5 +1,6 @@
 import helperFunctions
 from memberData import MemberData
+from datetime import datetime
 from record import Record
 
 #  this file contains the Records class which contains a list of the Record class data type
@@ -30,10 +31,12 @@ class Records(MemberData):
             return recordList
 
     # retrieves ALL member records, will implement ability to only retrieve records added in the past week
-    def retrieveAllMemberRecords(self):
-        recordList = self.database
-
-        return recordList
+    def checkIfMemberHasRecord(self, number : int):
+        for i in range(len(self.database)):
+            if self.database[i].memberNumber == number:
+                return True
+        
+        return False
 
         
     # searches and retrieves all records pertaining to provider ID (number); returns a list
