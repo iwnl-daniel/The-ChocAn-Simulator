@@ -12,7 +12,6 @@ def test_registerService_valid_userInput(monkeypatch):
 
 
 # === displayService function tests ===
-
 # Test: invalid user input for service number
 def test_displayService_invalid_userInput(monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: "y")
@@ -66,18 +65,4 @@ def test_userInput_correct_service_question(monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: "nO")
     value = registerService.displayService('175932')
     assert value == False
-
-  
-
-# Test 
-
-# Test 
-
-# Test 
-
-# Test 
-
-
-
-
 
