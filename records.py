@@ -28,7 +28,7 @@ class Records(MemberData):
             if self.database[i].memberNumber == number:
                 recordList.append(self.database[i])
 
-            return recordList
+        return recordList
 
     # retrieves ALL member records, will implement ability to only retrieve records added in the past week
     def checkIfMemberHasRecord(self, number : int):
